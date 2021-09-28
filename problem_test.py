@@ -20,7 +20,7 @@ def test_server():
         assert "0" in response, "Server doesn't display scores correctly"
         s.sendall(b"Yes")
         response = s.recv(1024).decode("utf-8").lower()
-        assert "rock" in response, f"Server doesn't show the plays the second round response: {response}"
+        assert "rock" in response, f"Server doesn't show the plays in the second round response: {response}"
         s.sendall(b"Romp")
         response = s.recv(1024).decode("utf-8").lower()
         assert all(play in response for play in plays), "Failed to give same prompt when invalid move provided"
